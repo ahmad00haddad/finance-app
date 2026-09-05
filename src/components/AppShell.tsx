@@ -28,6 +28,13 @@ export function AppShell({ children }: { children: ReactNode }) {
             </div>
           </div>
           <div className="flex items-center gap-2">
+            <Link
+              to="/search"
+              className="h-9 w-9 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary transition"
+              aria-label="بحث"
+            >
+              <Search className="h-4 w-4" />
+            </Link>
             <ThemeToggle />
           </div>
         </div>
