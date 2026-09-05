@@ -20,7 +20,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="mx-auto max-w-md px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-full border border-primary/30 bg-card flex items-center justify-center overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-tr from-primary to-primary-foreground opacity-20" />
+              <div className="w-full h-full bg-gradient-to-tr from-primary to-gold-light opacity-40" />
             </div>
             <div>
               <div className="text-[10px] text-muted-foreground uppercase tracking-wider">نظام الإدارة المالية</div>
