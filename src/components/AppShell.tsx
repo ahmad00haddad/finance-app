@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, ListOrdered, Search, PieChart, Plus, Gem, Wallet } from "lucide-react";
+import { Home, ListOrdered, PieChart, Plus, Gem, Wallet, Search } from "lucide-react";
 import { ReactNode } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
