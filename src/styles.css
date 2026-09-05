@@ -10,12 +10,7 @@
  * The @theme inline block maps CSS custom properties to Tailwind utility
  * classes (e.g. --color-primary -> bg-primary, text-primary).
  *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * The :root block defines the Noir & Gold palette values.
  */
 
 @theme inline {
@@ -59,85 +54,95 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: 'Cairo', system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", Georgia, serif;
   --color-income: var(--income);
   --color-income-foreground: var(--income-foreground);
   --color-expense: var(--expense);
   --color-expense-foreground: var(--expense-foreground);
   --color-brand: var(--brand);
   --color-brand-2: var(--brand-2);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
 }
 
 :root {
-  --radius: 1rem;
-  /* Dark, warm financial dashboard */
-  --background: oklch(0.18 0.012 50);
-  --foreground: oklch(0.97 0.01 80);
-  --card: oklch(0.22 0.014 50);
-  --card-foreground: oklch(0.97 0.01 80);
-  --popover: oklch(0.22 0.014 50);
-  --popover-foreground: oklch(0.97 0.01 80);
-  --primary: oklch(0.72 0.18 45);
-  --primary-foreground: oklch(0.18 0.012 50);
-  --secondary: oklch(0.28 0.018 50);
-  --secondary-foreground: oklch(0.97 0.01 80);
-  --muted: oklch(0.26 0.012 50);
-  --muted-foreground: oklch(0.68 0.02 70);
-  --accent: oklch(0.32 0.04 40);
-  --accent-foreground: oklch(0.97 0.01 80);
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 80);
-  --border: oklch(0.32 0.014 50);
-  --input: oklch(0.28 0.014 50);
-  --ring: oklch(0.72 0.18 45);
-  --income: oklch(0.72 0.16 155);
-  --income-foreground: oklch(0.14 0.04 155);
-  --expense: oklch(0.66 0.20 25);
-  --expense-foreground: oklch(0.98 0.01 25);
-  --brand: oklch(0.72 0.18 45);
-  --brand-2: oklch(0.68 0.22 10);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --radius: 1.25rem;
+  /* Noir & Gold — premium finance dashboard */
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #111111;
+  --card-foreground: #fafafa;
+  --popover: #111111;
+  --popover-foreground: #fafafa;
+  --primary: #D4AF37;
+  --primary-foreground: #0a0a0a;
+  --secondary: #161616;
+  --secondary-foreground: #fafafa;
+  --muted: #1a1a1a;
+  --muted-foreground: #888888;
+  --accent: #1a1a1a;
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: rgba(255, 255, 255, 0.05);
+  --input: #1a1a1a;
+  --ring: #D4AF37;
+  --income: #22c55e;
+  --income-foreground: #052e16;
+  --expense: #ef4444;
+  --expense-foreground: #450a0a;
+  --brand: #D4AF37;
+  --brand-2: #8a6d1d;
+  --gold: #D4AF37;
+  --gold-light: #f3d97d;
+  --gold-dark: #8a6d1d;
+  --chart-1: #D4AF37;
+  --chart-2: #f3d97d;
+  --chart-3: #8a6d1d;
+  --chart-4: #22c55e;
+  --chart-5: #ef4444;
+  --sidebar: #111111;
+  --sidebar-foreground: #fafafa;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #0a0a0a;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-border: rgba(255, 255, 255, 0.05);
+  --sidebar-ring: #D4AF37;
 }
 
 /* Light mode overrides — toggle by adding the `light` class on <html> */
 html.light {
-  --background: oklch(0.985 0.005 80);
-  --foreground: oklch(0.20 0.014 50);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.20 0.014 50);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.20 0.014 50);
-  --primary: oklch(0.62 0.19 45);
-  --primary-foreground: oklch(0.99 0.005 80);
-  --secondary: oklch(0.94 0.012 80);
-  --secondary-foreground: oklch(0.22 0.014 50);
-  --muted: oklch(0.95 0.008 80);
-  --muted-foreground: oklch(0.45 0.02 60);
-  --accent: oklch(0.92 0.04 60);
-  --accent-foreground: oklch(0.22 0.014 50);
-  --destructive: oklch(0.58 0.22 25);
-  --destructive-foreground: oklch(0.99 0.005 25);
-  --border: oklch(0.88 0.01 60);
-  --input: oklch(0.96 0.008 60);
-  --ring: oklch(0.62 0.19 45);
-  --income: oklch(0.58 0.16 155);
-  --income-foreground: oklch(0.98 0.01 155);
-  --expense: oklch(0.58 0.20 25);
-  --expense-foreground: oklch(0.99 0.005 25);
-  --brand: oklch(0.62 0.19 45);
-  --brand-2: oklch(0.58 0.22 10);
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #B8962E;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #0a0a0a;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #0a0a0a;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: #f5f5f5;
+  --ring: #B8962E;
+  --income: #16a34a;
+  --income-foreground: #ffffff;
+  --expense: #dc2626;
+  --expense-foreground: #ffffff;
+  --brand: #B8962E;
+  --brand-2: #8a6d1d;
+  --gold: #B8962E;
+  --gold-light: #f3d97d;
+  --gold-dark: #8a6d1d;
 }
 
 @layer base {
@@ -157,15 +162,18 @@ html.light {
 
 @layer utilities {
   .bg-brand-gradient {
-    background-image: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+    background-image: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
   }
   .text-brand-gradient {
-    background-image: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+    background-image: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .shadow-glow {
-    box-shadow: 0 8px 40px -10px color-mix(in oklab, var(--brand) 35%, transparent);
+    box-shadow: 0 8px 40px -10px color-mix(in oklab, var(--gold) 30%, transparent);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
   }
 }
