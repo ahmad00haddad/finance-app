@@ -1,7 +1,8 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, ListOrdered, PieChart, Plus, Gem, Wallet, Search } from "lucide-react";
+import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
+import { Home, ListOrdered, PieChart, Plus, Gem, Search, LogOut } from "lucide-react";
 import { ReactNode } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { STORAGE_KEY } from "@/components/PasswordGate";
 
 type NavItem = { to: string; label: string; icon: typeof Home; primary?: boolean };
 const items: NavItem[] = [
@@ -14,6 +15,13 @@ const items: NavItem[] = [
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    try { localStorage.removeItem(STORAGE_KEY); } catch {}
+    window.location.reload();
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-20 bg-background/80 backdrop-blur-md border-b border-border">
@@ -36,6 +44,13 @@ export function AppShell({ children }: { children: ReactNode }) {
               <Search className="h-4 w-4" />
             </Link>
             <ThemeToggle />
+            <button
+              onClick={handleLogout}
+              className="h-9 w-9 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-expense transition"
+              title="تسجيل الخروج"
+            >
+              <LogOut className="h-4 w-4" />
+            </button>
           </div>
         </div>
       </header>
